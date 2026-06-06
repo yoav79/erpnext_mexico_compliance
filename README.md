@@ -216,6 +216,11 @@ Se implementan los siguientes hooks de eventos de documento:
 
 Cada commit que modifica comportamiento, herramientas o estructura del proyecto se registra aquí.
 
+### 2026-06-06 — `fix: corregir service_duration_display en Sales Invoice Item`
+
+- Corregida asignación de `service_end_date` a `end_date` en lugar de sobrescribir `start_date`
+- Agregados tests en `erpnext_mexico_compliance/tests/test_sales_invoice_item.py` con expectativas basadas en `_()`
+
 ### 2026-06-05 — `docs: traducir README al español`
 
 - Traducción completa del README al español
