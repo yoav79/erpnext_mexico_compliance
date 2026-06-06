@@ -11,23 +11,24 @@ from erpnext_mexico_compliance.overrides.payment_entry import PaymentEntry
 from erpnext_mexico_compliance.overrides.sales_invoice import SalesInvoice
 
 
+PENDING_CANCELLATION_FILTERS = {
+	"docstatus": 1,
+	"cancellation_acknowledgement": ["is", "set"],
+	"mx_stamped_xml": ["is", "set"],
+}
+
+
 def check_cancellation_status():
 	"""Checks the cancellation status of Sales Invoices and Payment Entries."""
 	invoices = frappe.get_all(
 		"Sales Invoice",
 		fields=["name"],
-		filters={
-			"cancellation_acknowledgement": ["is", "not set"],
-			"docstatus": 1,
-		},
+		filters=PENDING_CANCELLATION_FILTERS,
 	)
 	payments = frappe.get_all(
 		"Payment Entry",
 		fields=["name"],
-		filters={
-			"cancellation_acknowledgement": ["is", "not set"],
-			"docstatus": 1,
-		},
+		filters=PENDING_CANCELLATION_FILTERS,
 	)
 
 	for i in invoices:
