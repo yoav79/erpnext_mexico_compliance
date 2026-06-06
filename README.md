@@ -1,97 +1,97 @@
 # ERPNext Mexico Compliance
 
-ERPNext app to comply with Mexican Rules and Regulations
+Aplicación de ERPNext para cumplir con las reglas y regulaciones de México.
 
-## Introduction
+## Introducción
 
-ERPNext Mexico Compliance has been designed to adapt ERPNext business logic to comply with the Rules and Regulations of Mexican authorities.
+ERPNext Mexico Compliance adapta la lógica de negocio de ERPNext para cumplir con las reglas y regulaciones de las autoridades mexicanas.
 
-It is built on top of [ERPNext][erpnext_github] and [Frappe Framework][frappe_github]
+Está construida sobre [ERPNext][erpnext_github] y [Frappe Framework][frappe_github].
 
-For more details see [the documentation](https://tisinproblemas.com/mexico-compliance/introduccion)
+Para más detalles, consulta [la documentación](https://tisinproblemas.com/mexico-compliance/introduccion).
 
-## Installation
+## Instalación
 
-The installation steps assumes you have [Frappe Framework][frappe_github] and [ERPNext][erpnext_github] already installed.
+Los pasos de instalación asumen que ya tienes instalados [Frappe Framework][frappe_github] y [ERPNext][erpnext_github].
 
 ### Frappe Cloud
 
-Signup with [Frappe Cloud][frappe_cloud] and refer to the [Installing an app][frappe_cloud_app_install] documentation
+Regístrate en [Frappe Cloud][frappe_cloud] y consulta la documentación de [instalación de una app][frappe_cloud_app_install].
 
-### Self Hosting
+### Auto hospedado
 
 ```bash
-# Download app
+# Descargar la app
 bench get-app https://github.com/TI-Sin-Problemas/erpnext_mexico_compliance.git --branch version-16
 
-# Install app
+# Instalar la app
 bench --site site_name install-app erpnext_mexico_compliance
 ```
 
-### CFDI Stamping setup
+### Configuración de timbrado CFDI
 
-To enable the CFDI Stamping feature, you will need:
+Para habilitar el timbrado CFDI necesitas:
 
-- A package of stamps. To buy a package of stamps please contact us by sending an email to info@tisinproblemas.com
-- An API Key and API Secret. You will get your API Key and API Secret whith your package of stamps.
-- A valid Digital Signing Certificate (CSD) issued by the Mexican Tax Administration Service (SAT)
+- Un paquete de timbres. Para adquirirlo, escríbenos a info@tisinproblemas.com
+- Una API Key y API Secret, incluidas con tu paquete de timbres
+- Un Certificado de Sello Digital (CSD) válido emitido por el SAT
 
-Once you have all the requirements, on your ERPNext instance follow the steps below:
+Una vez que tengas todo, en tu instancia de ERPNext sigue estos pasos:
 
-1. Go to Desktop -> Mexico Compliance -> Digital Signing Certificate
-2. Add a Digital Signing Certificate:
+1. Ve a Escritorio → Mexico Compliance → Digital Signing Certificate
+2. Agrega un Certificado de Sello Digital:
 
-   1. Click on _Add Digital Signing Certificate_
-   2. Select your Company
-   3. Attach your certificate file (.cer)
-   4. Attach your certificate key file (.key)
-   5. Enter the Certificate key password
-   6. Click on _Save_
+   1. Haz clic en _Add Digital Signing Certificate_
+   2. Selecciona tu Empresa
+   3. Adjunta tu archivo de certificado (.cer)
+   4. Adjunta tu archivo de llave (.key)
+   5. Ingresa la contraseña de la llave
+   6. Haz clic en _Save_
 
-3. Go to Desktop -> Mexico Compliance -> CFDI Stamping Settings:
-   1. Enter your API Key & API Secret
-   2. Uncheck the Test mode checkbox in your production environment
-   3. Click on _Save_
+3. Ve a Escritorio → Mexico Compliance → CFDI Stamping Settings:
+   1. Ingresa tu API Key y API Secret
+   2. Desmarca el modo de prueba en tu entorno de producción
+   3. Haz clic en _Save_
 
-You can check the total amount of available credits/stamps in the CFDI Stamping Settings by clicking on the _Available Credits_ button
+Puedes consultar los timbres disponibles en CFDI Stamping Settings con el botón _Available Credits_.
 
-## Features
+## Funcionalidades
 
-### CFDI Stamping
+### Timbrado CFDI
 
-The CFDI Stamping feature allows you to create and stamp CFDI documents for **Sales Invoices** and **Payment Entries** as required by Mexican authorities.
+El timbrado CFDI permite crear y timbrar documentos CFDI para **Facturas de Venta** y **Entradas de Pago**, según lo requieren las autoridades mexicanas.
 
-#### Sales invoice stamping
+#### Timbrado de facturas de venta
 
-Please be aware that in order to successfully stamp a Sales Invoices, some requirements must be met.
+Para timbrar una factura de venta correctamente, deben cumplirse estos requisitos:
 
-- There must be at least 1 Digital Signing Certificate for the Company issuing the Sales Invoice
-- You must have available credits/stamps
-- The Address of the Company must have a Zip Code
-- The Customer must have a valid Tax Id (RFC)
-- The Customer must have a Tax Regime
-- The Customer's address must have a Zip Code
-- The Invoice Items must have a SAT Product or Service Key
-- The UOM of the Invoice Items must have a SAT UOM Key
-- The Mode of Payment of the invoice must have a SAT Payment Method
-- The invoice must have a SAT Payment Option
+- Debe existir al menos un Certificado de Sello Digital para la empresa que emite la factura
+- Debes tener timbres disponibles
+- La dirección de la empresa debe tener código postal
+- El cliente debe tener un RFC válido
+- El cliente debe tener un régimen fiscal
+- La dirección del cliente debe tener código postal
+- Los artículos de la factura deben tener una Clave de producto/servicio SAT
+- La UOM de los artículos debe tener una Clave de unidad de medida SAT
+- La forma de pago de la factura debe tener una Forma de pago SAT
+- La factura debe tener un Método de pago SAT
 
-To stamp a Sales Invoice, a **Stamp CFDI** button will be available on the **Sales Invoice** form once it has being submitted.
+Una vez enviada la factura, aparecerá el botón **Stamp CFDI** en el formulario de **Sales Invoice**.
 
-#### Payment Entry stamping
+#### Timbrado de entradas de pago
 
-Please be aware that in order to successfully stamp a Payment Entry, some requirements must be met.
+Para timbrar una entrada de pago correctamente, deben cumplirse estos requisitos:
 
-- There must be at least 1 Digital Signing Certificate for the Company issuing the Payment Entry
-- You must have available credits/stamps
-- The Address of the Company must have a Zip Code
-- All the Reference Items must have being stamped
+- Debe existir al menos un Certificado de Sello Digital para la empresa que emite el pago
+- Debes tener timbres disponibles
+- La dirección de la empresa debe tener código postal
+- Todos los documentos de referencia deben estar timbrados
 
-### Mexican authorities catalogs
+### Catálogos de autoridades mexicanas
 
-Some of the Mexican authorities catalogs are added as Doctypes
+Algunos catálogos de las autoridades mexicanas se agregan como DocTypes:
 
-| Doctype                    | Catalog (in spanish)           |
+| DocType                    | Catálogo SAT                   |
 | -------------------------- | ------------------------------ |
 | Cancellation reason        | Motivo de cancelación SAT      |
 | SAT CFDI Use               | Uso de CFDI SAT                |
@@ -101,142 +101,145 @@ Some of the Mexican authorities catalogs are added as Doctypes
 | SAT Tax Regime             | Régimen fiscal SAT             |
 | SAT UOM Key                | Clave de unidad de medida SAT  |
 
-### Compliance fields
+### Campos de cumplimiento
 
-New fields are created for the following Doctypes
+Se crean campos adicionales en los siguientes DocTypes:
 
-#### Account Doctype
+#### Account
 
-| Field    | Description                                   |
-| -------- | --------------------------------------------- |
-| Tax Type | Type of Tax for Tax Accounts (IVA, ISR, IEPS) |
+| Campo    | Descripción                                      |
+| -------- | ------------------------------------------------ |
+| Tax Type | Tipo de impuesto para cuentas fiscales (IVA, ISR, IEPS) |
 
 #### Bank Account
 
-| Field | Description                                            |
-| ----- | ------------------------------------------------------ |
-| CLABE | CLABE (Clave Bancaria Estandarizada) for Bank Accounts |
+| Campo | Descripción                                           |
+| ----- | ----------------------------------------------------- |
+| CLABE | CLABE (Clave Bancaria Estandarizada) para cuentas bancarias |
 
 #### Company
 
-| Field          | Description                  |
-| -------------- | ---------------------------- |
-| SAT Tax Regime | SAT Tax Regime for Companies |
+| Campo          | Descripción                    |
+| -------------- | ------------------------------ |
+| SAT Tax Regime | Régimen fiscal SAT de la empresa |
 
 #### Customer
 
-| Field          | Description                                                                        |
-| -------------- | ---------------------------------------------------------------------------------- |
-| SAT Tax Regime | SAT Tax Regime for Customers                                                       |
-| CFDI Use       | Default CFDI Use for Customer's Invoices                                           |
-| Addenda        | Includes custom content into the XML's Addenda section of Customer's CFDI Invoices |
+| Campo          | Descripción                                                              |
+| -------------- | ------------------------------------------------------------------------ |
+| SAT Tax Regime | Régimen fiscal SAT del cliente                                           |
+| CFDI Use       | Uso de CFDI predeterminado para las facturas del cliente                 |
+| Addenda        | Contenido personalizado en la sección Addenda del XML de facturas del cliente |
 
 #### Item
 
-| Field                      | Description                          |
-| -------------------------- | ------------------------------------ |
-| SAT Product or Service Key | SAT Product or Service Key for Items |
+| Campo                      | Descripción                              |
+| -------------------------- | ---------------------------------------- |
+| SAT Product or Service Key | Clave de producto/servicio SAT del artículo |
 
 #### Mode of Payment
 
-| Field              | Description                                                     |
-| ------------------ | --------------------------------------------------------------- |
-| SAT Payment Method | Used to Link Invoices & Payment Entries with SAT Payment Method |
+| Campo              | Descripción                                                        |
+| ------------------ | ------------------------------------------------------------------ |
+| SAT Payment Method | Vincula facturas y entradas de pago con la forma de pago SAT       |
 
 #### Payment Entry
 
-| Field                        | Description                                                                                     |
-| ---------------------------- | ----------------------------------------------------------------------------------------------- |
-| Cancellation reason          | If a stamped Payment Entry needs to be cancelled, a Cancellation Reason must be provided        |
-| Substitute payment entry     | If the Cancellation Reason requires it, this field allows to specify a Substitute payment entry |
-| Stamped XML                  | Holds the XML data generated by the CFDI Stamping process.                                      |
-| Cancellation acknowledgement | Cancellation Acknowledgement XML data generated by the CFDI Cancellation Stamping process.      |
+| Campo                        | Descripción                                                                                  |
+| ---------------------------- | -------------------------------------------------------------------------------------------- |
+| Cancellation reason          | Motivo de cancelación requerido si la entrada de pago timbrada debe cancelarse               |
+| Substitute payment entry     | Entrada de pago sustituta, si el motivo de cancelación lo requiere                           |
+| Stamped XML                  | XML generado por el proceso de timbrado CFDI                                                 |
+| Cancellation acknowledgement | XML de acuse generado por el proceso de cancelación CFDI                                     |
 
 #### Sales Invoice
 
-| Field                        | Description                                                                                |
-| ---------------------------- | ------------------------------------------------------------------------------------------ |
-| Mode of Payment              | Mode of Payment for Sales Invoices                                                         |
-| SAT Payment Option           | SAT Payment Option for Sales Invoices                                                      |
-| SAT CFDI Use                 | SAT CFDI Use for Sales Invoices                                                            |
-| SAT Payment Method           | SAT Payment Method for Sales Invoices                                                      |
-| Stamped XML                  | Holds the XML data generated by the CFDI Stamping process.                                 |
-| Cancellation reason          | If a stamped Sales Invoice needs to be cancelled, a Cancellation Reason must be provided   |
-| Substitute invoice           | If the Cancellation Reason requires it, this field allows to specify a Substitute invoice  |
-| Cancellation acknowledgement | Cancellation Acknowledgement XML data generated by the CFDI Cancellation Stamping process. |
-| Addenda                      | Includes custom content into the XML's Addenda section of the CFDI Invoices                |
+| Campo                        | Descripción                                                                                  |
+| ---------------------------- | -------------------------------------------------------------------------------------------- |
+| Mode of Payment              | Forma de pago de la factura de venta                                                         |
+| SAT Payment Option           | Método de pago SAT de la factura                                                             |
+| SAT CFDI Use                 | Uso de CFDI de la factura                                                                    |
+| SAT Payment Method           | Forma de pago SAT de la factura                                                              |
+| Stamped XML                  | XML generado por el proceso de timbrado CFDI                                                 |
+| Cancellation reason          | Motivo de cancelación requerido si la factura timbrada debe cancelarse                       |
+| Substitute invoice           | Factura sustituta, si el motivo de cancelación lo requiere                                  |
+| Cancellation acknowledgement | XML de acuse generado por el proceso de cancelación CFDI                                     |
+| Addenda                      | Contenido personalizado en la sección Addenda del XML de la factura                          |
 
 #### Sales Invoice Item
 
-| Field                      | Description                                        |
+| Campo                      | Descripción                                        |
 | -------------------------- | -------------------------------------------------- |
-| SAT Product or Service Key | SAT Product or Service Key for Sales Invoice Items |
+| SAT Product or Service Key | Clave de producto/servicio SAT del artículo de factura |
 
 #### Sales Order Item
 
-| Field                      | Description                                      |
+| Campo                      | Descripción                                      |
 | -------------------------- | ------------------------------------------------ |
-| SAT Product or Service Key | SAT Product or Service Key for Sales Order Items |
+| SAT Product or Service Key | Clave de producto/servicio SAT del artículo de pedido |
 
 #### Subscription
 
-| Field              | Description                           |
-| ------------------ | ------------------------------------- |
-| Mode of Payment    | Mode of Payment for Sales Invoices    |
-| SAT Payment Option | SAT Payment Option for Sales Invoices |
+| Campo              | Descripción                        |
+| ------------------ | ---------------------------------- |
+| Mode of Payment    | Forma de pago para facturas de venta |
+| SAT Payment Option | Método de pago SAT para facturas   |
 
 #### UOM
 
-| Field       | Description                                         |
-| ----------- | --------------------------------------------------- |
-| SAT UOM Key | Used to link Sales Invoice Items with a SAT UOM Key |
+| Campo       | Descripción                                              |
+| ----------- | -------------------------------------------------------- |
+| SAT UOM Key | Vincula artículos de factura con una clave de unidad SAT |
 
 ### Hooks
 
-The following Document Event hooks are implemented
+Se implementan los siguientes hooks de eventos de documento:
 
-| Hook                  | Description                                                     |
-| --------------------- | --------------------------------------------------------------- |
-| `before_stamp_cfdi`   | Method executed before stamping a CFDI document                 |
-| `after_stamp_cfdi`    | Method executed after stamping a CFDI document                  |
-| `before_attach_files` | Method executed before attaching the CFDI files to the document |
-| `after_attach_files`  | Method executed after attaching the CFDI files to the document  |
-| `before_attach_pdf`   | Method executed before attaching the PDF file to the document   |
-| `after_attach_pdf`    | Method executed after attaching the PDF file to the document    |
-| `before_attach_xml`   | Method executed before attaching the XML file to the document   |
-| `after_attach_xml`    | Method executed after attaching the XML file to the document    |
+| Hook                  | Descripción                                                      |
+| --------------------- | ---------------------------------------------------------------- |
+| `before_stamp_cfdi`   | Método ejecutado antes de timbrar un documento CFDI              |
+| `after_stamp_cfdi`    | Método ejecutado después de timbrar un documento CFDI            |
+| `before_attach_files` | Método ejecutado antes de adjuntar los archivos CFDI al documento |
+| `after_attach_files`  | Método ejecutado después de adjuntar los archivos CFDI al documento |
+| `before_attach_pdf`   | Método ejecutado antes de adjuntar el PDF al documento           |
+| `after_attach_pdf`    | Método ejecutado después de adjuntar el PDF al documento         |
+| `before_attach_xml`   | Método ejecutado antes de adjuntar el XML al documento           |
+| `after_attach_xml`    | Método ejecutado después de adjuntar el XML al documento         |
 
-### Scheduled Jobs
+### Tareas programadas
 
-The following Scheduled Jobs are implemented
+| Tarea programada            | Descripción                                                              | Frecuencia |
+| --------------------------- | ------------------------------------------------------------------------ | ---------- |
+| `check_cancellation_status` | Consulta el estado de cancelación CFDI de facturas y entradas de pago    | Cada hora  |
 
-| Scheduled Job Type          | Description                                                               | Frequency |
-| --------------------------- | ------------------------------------------------------------------------- | --------- |
-| `check_cancellation_status` | Checks the CFDI cancellation status of Sales Invoices and Payment Entries | Hourly    |
+## Historial de cambios
 
-## Changelog
+Cada commit que modifica comportamiento, herramientas o estructura del proyecto se registra aquí.
 
-Each commit that changes behavior, tooling, or project structure is recorded here.
+### 2026-06-05 — `docs: traducir README al español`
+
+- Traducción completa del README al español
+- Se mantienen nombres técnicos de DocTypes, campos y hooks como en ERPNext
 
 ### 2026-06-05 — `chore: clean up project structure and tooling`
 
-- Removed Docker packaging (`docker/`, `.dockerignore`, `docker-ci.yml`) not used for local development
-- Removed legacy `setup.py` and updated `MANIFEST.in` for the current app layout
-- Simplified `hooks.py` by removing unused commented configuration
-- Removed dead code: `utils/permissions.py`, empty DocType test stubs, and temporary `sys.path` hacks
-- Fixed CI by removing the broken `partial-database.sql.gz` restore step
-- Updated `.pre-commit-config.yaml` and `.eslintrc` to drop references from other projects
-- Moved app logo to `public/img/logo.svg` and fixed the Desktop Icon reference
-- Aligned installation docs with Frappe/ERPNext `version-16`
-- Added real validator tests in `erpnext_mexico_compliance/tests/test_validators.py`
+- Eliminado empaquetado Docker (`docker/`, `.dockerignore`, `docker-ci.yml`) no usado en desarrollo local
+- Eliminado `setup.py` legacy y actualizado `MANIFEST.in` al layout actual de la app
+- Simplificado `hooks.py` removiendo configuración comentada sin uso
+- Eliminado código muerto: `utils/permissions.py`, tests vacíos de DocTypes y hacks temporales de `sys.path`
+- Corregido CI eliminando el paso roto de restauración `partial-database.sql.gz`
+- Actualizado `.pre-commit-config.yaml` y `.eslintrc` para quitar referencias de otros proyectos
+- Movido el logo a `public/img/logo.svg` y corregida la referencia del ícono de escritorio
+- Alineada la documentación de instalación con Frappe/ERPNext `version-16`
+- Agregados tests reales de validadores en `erpnext_mexico_compliance/tests/test_validators.py`
 
-## Contributing
+## Contribuir
 
-PRs are welcome!
+¡Los PRs son bienvenidos!
 
-If you want to help with the translation of this app, please consider joining the project on [Crowdin](https://crwd.in/erpnext-mexico-compliance/35a28fa170d6652eeedc5b7dbd064a7a2457550)
+Si quieres ayudar con la traducción de esta app, únete al proyecto en [Crowdin](https://crwd.in/erpnext-mexico-compliance/35a28fa170d6652eeedc5b7dbd064a7a2457550).
 
-## License
+## Licencia
 
 MIT
 
