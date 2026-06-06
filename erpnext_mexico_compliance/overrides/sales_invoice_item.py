@@ -85,7 +85,7 @@ class SalesInvoiceItem(sales_invoice_item.SalesInvoiceItem):
 
 		end_date = ""
 		if self.service_end_date:
-			start_date = _("To {}").format(self.service_end_date)
+			end_date = _("To {}").format(self.service_end_date)
 
 		return f"{start_date} {end_date}".strip()
 
