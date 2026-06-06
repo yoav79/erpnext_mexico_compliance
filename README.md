@@ -22,7 +22,7 @@ Signup with [Frappe Cloud][frappe_cloud] and refer to the [Installing an app][fr
 
 ```bash
 # Download app
-bench get-app https://github.com/TI-Sin-Problemas/erpnext_mexico_compliance.git --branch version-15
+bench get-app https://github.com/TI-Sin-Problemas/erpnext_mexico_compliance.git --branch version-16
 
 # Install app
 bench --site site_name install-app erpnext_mexico_compliance
@@ -213,6 +213,22 @@ The following Scheduled Jobs are implemented
 | Scheduled Job Type          | Description                                                               | Frequency |
 | --------------------------- | ------------------------------------------------------------------------- | --------- |
 | `check_cancellation_status` | Checks the CFDI cancellation status of Sales Invoices and Payment Entries | Hourly    |
+
+## Changelog
+
+Each commit that changes behavior, tooling, or project structure is recorded here.
+
+### 2026-06-05 — `chore: clean up project structure and tooling`
+
+- Removed Docker packaging (`docker/`, `.dockerignore`, `docker-ci.yml`) not used for local development
+- Removed legacy `setup.py` and updated `MANIFEST.in` for the current app layout
+- Simplified `hooks.py` by removing unused commented configuration
+- Removed dead code: `utils/permissions.py`, empty DocType test stubs, and temporary `sys.path` hacks
+- Fixed CI by removing the broken `partial-database.sql.gz` restore step
+- Updated `.pre-commit-config.yaml` and `.eslintrc` to drop references from other projects
+- Moved app logo to `public/img/logo.svg` and fixed the Desktop Icon reference
+- Aligned installation docs with Frappe/ERPNext `version-16`
+- Added real validator tests in `erpnext_mexico_compliance/tests/test_validators.py`
 
 ## Contributing
 

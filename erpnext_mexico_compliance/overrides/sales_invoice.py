@@ -3,7 +3,6 @@ Copyright (c) 2022, TI Sin Problemas and contributors
 For license information, please see license.txt
 """
 
-import sys
 from datetime import datetime
 from decimal import Decimal
 
@@ -28,10 +27,6 @@ from erpnext_mexico_compliance.utils.cfdi import get_uuid_from_xml
 from erpnext_mexico_compliance.ws_client import get_ws_client
 
 from .customer import Customer
-
-# temporary hack until https://github.com/frappe/frappe/issues/27373 is fixed
-if sys.path[0].rsplit("/", maxsplit=1)[-1] == "utils":
-	sys.path[0] = sys.path[0].replace("apps/frappe/frappe/utils", "sites")
 
 
 class SalesInvoice(CommonController, sales_invoice.SalesInvoice):

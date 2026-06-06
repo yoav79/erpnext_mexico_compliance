@@ -2,13 +2,11 @@ exclude: 'node_modules|.git'
 default_stages: [pre-commit]
 fail_fast: false
 
-
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
       - id: trailing-whitespace
-        files: "mdm_web_tools.*"
         exclude: ".*json$|.*txt$|.*csv|.*md|.*svg"
       - id: check-merge-conflict
       - id: check-ast
@@ -34,17 +32,11 @@ repos:
     rev: v2.7.1
     hooks:
       - id: prettier
-        types_or: [javascript, vue, scss]
-        # Ignore any files that might contain jinja / bundles
+        types_or: [javascript]
         exclude: |
             (?x)^(
-                mdm_web_tools/public/dist/.*|
-                .*node_modules.*|
-                .*boilerplate.*|
-                mdm_web_tools/templates/includes/.*|
-                mdm_web_tools/public/js/lib/.*
+                .*node_modules.*
             )$
-
 
   - repo: https://github.com/pre-commit/mirrors-eslint
     rev: v8.44.0
@@ -52,15 +44,9 @@ repos:
       - id: eslint
         types_or: [javascript]
         args: ['--quiet']
-        # Ignore any files that might contain jinja / bundles
         exclude: |
             (?x)^(
-                mdm_web_tools/public/dist/.*|
-                cypress/.*|
-                .*node_modules.*|
-                .*boilerplate.*|
-                mdm_web_tools/templates/includes/.*|
-                mdm_web_tools/public/js/lib/.*
+                .*node_modules.*
             )$
 
 ci:

@@ -1,18 +1,15 @@
-include MANIFEST.in
-include requirements.txt
-include *.json
-include *.md
-include *.py
-include *.txt
-recursive-include mexico_compliance *.css
-recursive-include mexico_compliance *.csv
-recursive-include mexico_compliance *.html
-recursive-include mexico_compliance *.ico
-recursive-include mexico_compliance *.js
-recursive-include mexico_compliance *.json
-recursive-include mexico_compliance *.md
-recursive-include mexico_compliance *.png
-recursive-include mexico_compliance *.py
-recursive-include mexico_compliance *.svg
-recursive-include mexico_compliance *.txt
-recursive-exclude mexico_compliance *.pyc
+include README.md
+include license.txt
+include pyproject.toml
+recursive-include erpnext_mexico_compliance *.css
+recursive-include erpnext_mexico_compliance *.csv
+recursive-include erpnext_mexico_compliance *.html
+recursive-include erpnext_mexico_compliance *.js
+recursive-include erpnext_mexico_compliance *.json
+recursive-include erpnext_mexico_compliance *.md
+recursive-include erpnext_mexico_compliance *.png
+recursive-include erpnext_mexico_compliance *.py
+recursive-include erpnext_mexico_compliance *.svg
+recursive-include erpnext_mexico_compliance *.txt
+recursive-include erpnext_mexico_compliance *.xml
+recursive-exclude erpnext_mexico_compliance *.pyc

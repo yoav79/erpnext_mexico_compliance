@@ -3,8 +3,6 @@ Copyright (c) 2024, TI Sin Problemas and contributors
 For license information, please see license.txt
 """
 
-import sys
-
 import frappe
 from erpnext.accounts.doctype.payment_entry import payment_entry
 from erpnext.selling.doctype.customer.customer import Customer
@@ -28,10 +26,6 @@ from ..erpnext_mexico_compliance.doctype.digital_signing_certificate.digital_sig
 	DigitalSigningCertificate,
 )
 from ..ws_client import get_ws_client
-
-# temporary hack until https://github.com/frappe/frappe/issues/27373 is fixed
-if sys.path[0].rsplit("/", maxsplit=1)[-1] == "utils":
-	sys.path[0] = sys.path[0].replace("apps/frappe/frappe/utils", "sites")
 
 
 class PaymentEntry(CommonController, payment_entry.PaymentEntry):
